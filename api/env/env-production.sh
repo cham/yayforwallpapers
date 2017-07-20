@@ -3,4 +3,4 @@
 export NODE_ENV=production
 # do NOT add any live keys to version control
 
-echo "Environment set to production"
+echo -e "Environment set to \033[0;31mproduction\033[0m"
