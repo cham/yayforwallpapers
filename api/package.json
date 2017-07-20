@@ -1,0 +1,29 @@
+{
+  "name": "yayforwallpapers-api",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "./run-production.sh",
+    "dev": "./run-dev.sh",
+    "test": "./run-tests.sh",
+    "lint": "./run-lint.sh"
+  },
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "cluster": "0.7.7",
+    "express": "4.15.3",
+    "routemaster": "0.2.2"
+  },
+  "devDependencies": {
+    "es2015-deferred": "3.0.0",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb-base": "11.2.0",
+    "eslint-config-google": "0.8.0",
+    "eslint-plugin-import": "2.7.0",
+    "mocha": "3.4.2",
+    "proxyquire": "1.8.0",
+    "sandboxed-module": "^2.0.3",
+    "sinon": "2.3.6",
+    "supertest": "3.0.0"
+  }
+}
