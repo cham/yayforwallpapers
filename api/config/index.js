@@ -1,5 +1,6 @@
 const requiredVars = [
   'port',
+  'psql-connection-string'
 ];
 
 const argv = process.argv.filter(argStr => argStr.indexOf('--') === 0).reduce((memo, argStr) => {
@@ -14,7 +15,8 @@ const argv = process.argv.filter(argStr => argStr.indexOf('--') === 0).reduce((m
 
 const env = () => {
   const props = {
-    port: process.env.NS_Y4W_API_PORT
+    port: process.env.NS_Y4W_API_PORT,
+    'psql-connection-string': process.env.NS_Y4W_PSQL_CONNECTION_STRING
   };
   Object.keys(props).forEach((key) => {
     if (props[key] === undefined) {
