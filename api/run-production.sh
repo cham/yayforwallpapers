@@ -1,3 +1,5 @@
 #!/bin/bash
-
-. env/env-dev.sh && . env/env-production.sh && node .
+. ~/.nvm/nvm.sh
+. env/env-dev.sh
+. env/env-production.sh
+nvm use && node .

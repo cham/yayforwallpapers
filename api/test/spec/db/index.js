@@ -1,7 +1,6 @@
 const assert = require('assert');
 const SandboxedModule = require('sandboxed-module');
 const sinon = require('sinon');
-const config = require('../../../config');
 
 describe('db', () => {
   let fakePg;
@@ -21,7 +20,7 @@ describe('db', () => {
     };
     db = SandboxedModule.require('../../../db', {
       requires: {
-        'pg': fakePg,
+        pg: fakePg,
         '../config': fakeConfig
       }
     });

@@ -1,5 +1,5 @@
 #!/bin/bash
 
-. env-dev.sh
+export NODE_ENV=development
 
 echo "Environment set to testing"

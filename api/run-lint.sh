@@ -1,3 +1,4 @@
 #!/bin/bash
 
-. env/env-dev.sh && eslint .
+. env/env-dev.sh
+eslint .
