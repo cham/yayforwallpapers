@@ -5,6 +5,7 @@ Requirements
 ============
 - nvm
 - npm
+- postgres
 
 Installation
 ============
