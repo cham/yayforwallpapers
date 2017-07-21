@@ -1,13 +1,6 @@
-const parsers = require('../parsers');
+const usersController = require('../controllers/users');
 
 module.exports = (router) => {
-  router.post('/users', (req, res) => {
-    const username = parsers.username(req.body.username);
-    const password = parsers.password(req.body.password);
-    if (username && password) {
-      res.sendStatus(200);
-    } else {
-      res.sendStatus(400);
-    }
-  });
+  router.post('/users', (req, res) => usersController.create(req, res));
+  router.post('/users/login', (req, res) => usersController.login(req, res));
 };

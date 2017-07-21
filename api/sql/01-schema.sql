@@ -1,3 +1,5 @@
+CREATE EXTENSION pgcrypto;
+
 DROP TABLE IF EXISTS users;
 CREATE TABLE users (
   id        serial primary key,
