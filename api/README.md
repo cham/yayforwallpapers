@@ -37,8 +37,10 @@ Either supply config via command line arguments as above, or set them as environ
 
 Supported switches
 ------------------
-- --port=
+- --port
+- --psql-connection-string
 
 supported env vars
 ------------------
-- NS_Y4W_PORT=
+- NS_Y4W_PORT
+- NS_Y4W_PSQL_CONNECTION_STRING
