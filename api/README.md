@@ -33,7 +33,7 @@ npm run lint
 
 Config vars
 ===========
-Either supply config via command line arguments as above, or set them as environment variables prefixed with NS_Y4W_
+Either supply config via command line arguments as above, or set them as environment variables prefixed with NS_Y4W_API_.
 
 Supported switches
 ------------------
@@ -43,6 +43,6 @@ Supported switches
 
 supported env vars
 ------------------
-- NS_Y4W_PORT
-- NS_Y4W_PSQL_CONNECTION_STRING
-- NS_Y4W_JWT_SECRET
+- NS_Y4W_API_PORT
+- NS_Y4W_API_PSQL_CONNECTION_STRING
+- NS_Y4W_API_JWT_SECRET

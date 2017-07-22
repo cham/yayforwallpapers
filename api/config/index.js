@@ -16,8 +16,8 @@ const argv = process.argv.filter(argStr => argStr.indexOf('--') === 0).reduce((m
 const env = () => {
   const props = {
     port: process.env.NS_Y4W_API_PORT,
-    'psql-connection-string': process.env.NS_Y4W_PSQL_CONNECTION_STRING,
-    jwtsecret: process.env.NS_Y4W_JWT_SECRET
+    'psql-connection-string': process.env.NS_Y4W_API_PSQL_CONNECTION_STRING,
+    jwtsecret: process.env.NS_Y4W_API_JWT_SECRET
   };
   Object.keys(props).forEach((key) => {
     if (props[key] === undefined) {
