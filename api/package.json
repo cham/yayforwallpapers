@@ -15,7 +15,8 @@
     "indexjs": "1.0.2",
     "jsonwebtoken": "7.4.1",
     "pg": "7.0.1",
-    "routemaster": "0.2.2"
+    "routemaster": "0.2.2",
+    "node-watch": "0.5.5"
   },
   "devDependencies": {
     "es2015-deferred": "3.0.0",

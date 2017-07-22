@@ -1,4 +1,5 @@
 const cluster = require('cluster');
+const watch = require('node-watch');
 const config = require('../config');
 const os = require('os');
 
@@ -8,6 +9,8 @@ const startInitial = () => {
 
   if (process.env.NODE_ENV === 'development') {
     numToBoot = 1;
+    // reboot all workers on file change
+    watch('../', { recursive: true }, () => Object.values(cluster.workers).forEach(worker => worker.kill()));
   }
 
   function increment() {
