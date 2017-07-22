@@ -7,6 +7,8 @@ const lang = require('../../../lang');
 describe('users controller', () => {
   const sandbox = sinon.sandbox.create();
   let parsers;
+  let jwt;
+  let config;
   let getUserByUsernameDeferred;
   let createDeferred;
   let loginDeferred;
@@ -22,6 +24,8 @@ describe('users controller', () => {
       username: sandbox.stub(),
       password: sandbox.stub()
     };
+    jwt = {};
+    config = {};
     usersDb = {};
     res = {
       status: sandbox.stub().returns(res),
@@ -30,7 +34,9 @@ describe('users controller', () => {
     usersController = SandboxedModule.require('../../../controllers/users', {
       requires: {
         '../db/users': usersDb,
-        '../parsers': parsers
+        '../parsers': parsers,
+        jsonwebtoken: jwt,
+        '../config': config
       }
     });
   });
@@ -156,6 +162,11 @@ describe('users controller', () => {
   });
 
   describe('login', () => {
+    before(() => {
+      config.get = sandbox.stub();
+      jwt.sign = sandbox.stub();
+    });
+
     describe('when the username does not pass the username parser', () => {
       beforeEach(() => {
         parsers.username.returns(false);
@@ -199,6 +210,8 @@ describe('users controller', () => {
         parsers.username.returns('valid_username');
         parsers.password.returns('a valid password');
         usersDb.login = sandbox.stub().returns(loginDeferred.promise);
+        config.get.withArgs('jwtsecret').returns('fakesecret');
+        jwt.sign.returns('a token');
         usersController.login(req, res);
       });
 
@@ -212,11 +225,16 @@ describe('users controller', () => {
           return loginDeferred.promise;
         });
 
-        it('sets the response status to 200 and sends the user object', () => {
+        it('generates a jwt token valid for 24 hours, passing the user data and the jwtsecret from config', () => {
+          assert.ok(jwt.sign.calledOnce);
+          assert.ok(jwt.sign.calledWith('a user perhaps', 'fakesecret', { expiresIn: '24h' }));
+        });
+
+        it('sets the response status to 200 and sends the token', () => {
           assert.ok(res.status.calledOnce);
           assert.ok(res.status.calledWith(200));
           assert.ok(res.send.calledOnce);
-          assert.ok(res.send.calledWith({ user: 'a user perhaps' }));
+          assert.ok(res.send.calledWith({ token: 'a token' }));
         });
       });
 

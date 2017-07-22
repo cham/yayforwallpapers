@@ -7,4 +7,4 @@ index
 users
 -----
 - POST "/v1/users" - returns 200 and user, 400 and error message, 409 (user already exists) and error message
-- POST "/v1/users/login" - returns 200 and user, 400 and error message, 404 (login invalid) and error message
+- POST "/v1/users/login" - returns 200 and token, 400 and error message, 404 (login invalid) and error message, 500 and error message

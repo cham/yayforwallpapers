@@ -39,8 +39,10 @@ Supported switches
 ------------------
 - --port
 - --psql-connection-string
+- --jwtsecret
 
 supported env vars
 ------------------
 - NS_Y4W_PORT
 - NS_Y4W_PSQL_CONNECTION_STRING
+- NS_Y4W_JWT_SECRET
