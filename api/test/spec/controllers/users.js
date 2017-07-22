@@ -33,10 +33,10 @@ describe('users controller', () => {
     };
     usersController = SandboxedModule.require('../../../controllers/users', {
       requires: {
-        '../db/users': usersDb,
-        '../parsers': parsers,
+        '../../db/users': usersDb,
+        '../../parsers': parsers,
         jsonwebtoken: jwt,
-        '../config': config
+        '../../config': config
       }
     });
   });
